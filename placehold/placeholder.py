@@ -82,8 +82,10 @@ class ImageForm(forms.Form):
 
 
 def index(request):
+    # 这个example=/image/50x50/
     example = reverse('placeholder', kwargs={'width': 50, 'height': 50})
     context = {
+        # 展示全路径http://localhost:8000/image/50x50/
         'example': request.build_absolute_uri(example)
     }
     return render(request, 'home.html', context)
